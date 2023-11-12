@@ -4,27 +4,14 @@ std::string Module::GetName() const {
     return _name;
 }
 
-bool Module::AddFunction(const std::string& functionName){
-    auto bSuccess{false};
-
-    const auto functionNum = _functions.size();
-    _functions.emplace(std::make_unique<Function>(functionName));
-    bSuccess = _functions.size() == functionNum + 1;
-
-    return bSuccess;
+void Module::AddFunction(const std::string& functionName){
 }
 
-bool Module::RemoveFunction(const std::string& functionName){
-    auto bSuccess{false};
-    return bSuccess;
+void Module::RemoveFunction(const std::string& functionName){
 }
 
-bool Module::AddEntryBlockToFunctionByName(const std::string& functionName){
-    auto bSuccess{false};
-    return bSuccess;
+void Module::AddEntryBlockToFunctionByName(const std::string& functionName){
 }
 
-bool Module::RemoveEntryBlockToFunctionByName(const std::string& functionName){
-    auto bSuccess{false};
-    return bSuccess;
+void Module::RemoveEntryBlockToFunctionByName(const std::string& functionName){
 }

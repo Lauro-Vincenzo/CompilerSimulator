@@ -5,10 +5,10 @@
 
 class Module{
 public:
-    bool AddFunction(const std::string& functionName);
-    bool RemoveFunction(const std::string& functionName);
-    bool AddEntryBlockToFunctionByName(const std::string& functionName);
-    bool RemoveEntryBlockToFunctionByName(const std::string& functionName);
+    void AddFunction(const std::string& functionName);
+    void RemoveFunction(const std::string& functionName);
+    void AddEntryBlockToFunctionByName(const std::string& functionName);
+    void RemoveEntryBlockToFunctionByName(const std::string& functionName);
 
     std::string GetName() const;
 private:
