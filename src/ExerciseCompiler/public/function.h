@@ -10,7 +10,7 @@ private:
     std::vector<std::unique_ptr<BasicBlock>> _basicBlocks{};
 public:
     Function(const std::string& name);
-    void Run() const;
+    std::string Run() const;
     std::string GetName() const;
 
     void AddSuccessorBlock(const std::string &basicBlockName, std::pair<std::string, const BasicBlock &> basicBlockLinkInfo);

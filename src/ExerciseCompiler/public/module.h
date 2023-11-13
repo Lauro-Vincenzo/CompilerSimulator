@@ -14,14 +14,12 @@ public:
     void AddSuccessorBlock(const std::string& functionName, const std::string& entryBlockName, const std::pair<std::string, const BasicBlock&>& basicBlockLinkInfo);
     void RemoveSuccessorBlock(const std::string& functionName, const std::string& entryBlockName, const std::string& linkToRemove);
 
-
-
-    void RunFunctions() const;
+    std::string RunFunctions() const;
 
     std::vector<std::weak_ptr<Function>> GetFunctions() const;
 
     std::string GetName() const;
 private:
-    std::string _name{};
+    std::string _name{"EntryModule"};
     std::set<std::unique_ptr<Function>> _functions{};
 };

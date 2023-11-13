@@ -48,8 +48,15 @@ void Module::AddSuccessorBlock(const std::string &functionName, const std::strin
     }
 }
 
-void Module::RunFunctions() const{
+std::string Module::RunFunctions() const{
+    std::string outputString{};
     for(const auto& function : _functions){
-        function->Run();
+        outputString += _name;
+        outputString += "->";
+        outputString += function->GetName(); 
+        outputString += ";\n";
+        outputString += function->Run();
     }
+    return outputString;
+    
 }

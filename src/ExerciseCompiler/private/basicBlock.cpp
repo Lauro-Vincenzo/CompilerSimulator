@@ -6,16 +6,18 @@ BasicBlock::BasicBlock(const std::string& name) : _name{name}{
 
 }
 
-void BasicBlock::Run() const
+std::string BasicBlock::Run() const
 {
-    std::cout << "Start Running Basic Block with Name: " << _name << std::endl;
-    std::cout << "Now Running " << _successorsBlocks.size() << " successors.\n";
-
+    std::string outputString{};
     for(const auto& successor : _successorsBlocks){
-        successor.second->Run();
-    }
+        outputString += _name;
+        outputString += "->";
+        outputString += successor.second->GetName();
+        outputString += ";\n";
 
-    std::cout << "End Running Basic Block with Name: " << _name << std::endl;
+        outputString += successor.second->Run();
+    }
+    return outputString;
 }
 
 std::string BasicBlock::GetName() const{

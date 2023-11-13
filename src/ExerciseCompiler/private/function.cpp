@@ -7,14 +7,18 @@ Function::Function(const std::string& name) : _name{name}{
     assert(_basicBlocks.size() == 1);
 }
 
-void Function::Run() const
+std::string Function::Run() const
 {
-    std::cout << "Start Running Function with Name: " << _name << std::endl;
+    std::string outputString{};
     for(const auto& basicBlock : _basicBlocks){
-        basicBlock->Run();
+        outputString += _name;
+        outputString += "->";
+        outputString += basicBlock->GetName();
+        outputString += ";\n";
+        outputString += basicBlock->Run();
+        //outputString += ";\n";
     }
-
-    std::cout << "End Running Function with Name: " << _name << std::endl;
+    return outputString;
 }
 
 std::string Function::GetName() const{
