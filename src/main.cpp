@@ -3,12 +3,12 @@
 
 #include "module.h"
 
+void TestFunction();
+
 int main(){
     std::cout << "Start\n";
 
-    auto firstModule = std::make_unique<Module>();
-    firstModule->AddFunction("FirstFunction");
-    
+    TestFunction();
 
     std::cout << "End\n";
     return 0;

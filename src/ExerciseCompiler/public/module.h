@@ -7,8 +7,12 @@ class Module{
 public:
     void AddFunction(const std::string& functionName);
     void RemoveFunction(const std::string& functionName);
-    void AddEntryBlockToFunctionByName(const std::string& functionName);
-    void RemoveEntryBlockToFunctionByName(const std::string& functionName);
+    void AddEntryBlockToFunctionByName(const std::string& functionName, const std::string& entryBlockName);
+    void RemoveEntryBlockToFunctionByName(const std::string& functionName, const std::string& entryBlockName);
+
+    void RunFunctions() const;
+
+    std::vector<std::weak_ptr<Function>> GetFunctions() const;
 
     std::string GetName() const;
 private:
