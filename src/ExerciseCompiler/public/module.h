@@ -7,8 +7,14 @@ class Module{
 public:
     void AddFunction(const std::string& functionName);
     void RemoveFunction(const std::string& functionName);
-    void AddEntryBlockToFunctionByName(const std::string& functionName, const std::string& entryBlockName);
-    void RemoveEntryBlockToFunctionByName(const std::string& functionName, const std::string& entryBlockName);
+
+    void AddBasicBlockToFunctionByName(const std::string& functionName, const std::string& entryBlockName);
+    void RemoveBasicBlockToFunctionByName(const std::string& functionName, const std::string& entryBlockName);
+
+    void AddSuccessorBlock(const std::string& functionName, const std::string& entryBlockName, const std::pair<std::string, const BasicBlock&>& basicBlockLinkInfo);
+    void RemoveSuccessorBlock(const std::string& functionName, const std::string& entryBlockName, const std::string& linkToRemove);
+
+
 
     void RunFunctions() const;
 

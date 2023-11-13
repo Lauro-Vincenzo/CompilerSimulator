@@ -14,7 +14,7 @@ void Module::RemoveFunction(const std::string& functionName){
     });
 }
 
-void Module::AddEntryBlockToFunctionByName(const std::string& functionName, const std::string& entryBlockName){
+void Module::AddBasicBlockToFunctionByName(const std::string& functionName, const std::string& entryBlockName){
     for(const auto& function : _functions){
         if(function->GetName() == functionName){
             function->AddBasicBlock(entryBlockName);
@@ -22,10 +22,28 @@ void Module::AddEntryBlockToFunctionByName(const std::string& functionName, cons
     }
 }
 
-void Module::RemoveEntryBlockToFunctionByName(const std::string& functionName, const std::string& entryBlockName){
+void Module::RemoveBasicBlockToFunctionByName(const std::string& functionName, const std::string& entryBlockName){
     for(const auto& function : _functions){
         if(function->GetName() == functionName){
             function->RemoveBasicBlock(entryBlockName);
+        }
+    }
+}
+
+void Module::RemoveSuccessorBlock(const std::string &functionName, const std::string &entryBlockName, const std::string& linkToRemove)
+{
+    for(const auto& function : _functions){
+        if(function->GetName() == functionName){
+            function->RemoveSuccessorBlock(entryBlockName,linkToRemove);
+        }
+    }
+}
+
+void Module::AddSuccessorBlock(const std::string &functionName, const std::string &entryBlockName, const std::pair<std::string, const BasicBlock&>& basicBlockLinkInfo)
+{
+    for(const auto& function : _functions){
+        if(function->GetName() == functionName){
+            function->AddSuccessorBlock(entryBlockName,basicBlockLinkInfo);
         }
     }
 }
