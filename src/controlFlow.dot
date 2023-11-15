@@ -1,0 +1,7 @@
+digraph ControlFlowGraph {
+EntryModule->FirstFunction;
+FirstFunction->EntryBasicBlock;
+EntryBasicBlock->BasicSuccessor1;
+BasicSuccessor1->BasicSuccessor2;
+FirstFunction->SecondEntryBlock;
+}
